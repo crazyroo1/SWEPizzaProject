@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.Main">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF2CC#FFF2CC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.Main">
    <children>
-      <Button layoutX="273.0" layoutY="187.0" mnemonicParsing="false" text="Button" />
+      <fx:include source="PPTabBar.fxml" />
    </children>
 </AnchorPane>
