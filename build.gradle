@@ -12,6 +12,6 @@ javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
-sourceSets.main.java.srcDirs = ['src/com.pizzapalace.sprint2']
+sourceSets.main.java.srcDirs = ['src/main']
 
-mainClassName = 'Main'
+mainClassName = 'com.pizzapalace.sprint2.Main'
