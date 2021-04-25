@@ -1,5 +1,6 @@
 package com.pizzapalace.sprint2.ViewControllers;
 
+import com.pizzapalace.sprint2.Models.Account;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

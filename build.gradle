@@ -14,4 +14,9 @@ javafx {
 
 sourceSets.main.java.srcDirs = ['src/main']
 
-mainClassName = 'com.pizzapalace.sprint2.Main'
+mainClassName = 'com.pizzapalace.sprint2.ViewControllers.Main'
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+}

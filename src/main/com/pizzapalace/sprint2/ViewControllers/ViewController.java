@@ -1,11 +1,14 @@
 package com.pizzapalace.sprint2.ViewControllers;
 
+import com.pizzapalace.sprint2.Models.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 public class ViewController {
+    static Account signedInUser = null;
+
     @FXML public BorderPane content;
 
     @FXML public PPTabBar tabbarController;
@@ -26,9 +29,22 @@ public class ViewController {
                     return FXMLLoader.load(getClass().getResource("/Home.fxml"));
                 case ABOUT_US:
                     return FXMLLoader.load(getClass().getResource("/AboutUs.fxml"));
+                case LOG_IN:
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/SignIn.fxml"));
+                    Parent root = loader.load();
+                    SignIn controller = loader.getController();
+                    controller.viewController = this;
+                    return root;
             }
-        } catch(Exception ignored) { }
+        } catch(Exception e) {
+            System.out.println("Unable to load destination " + destination.toString());
+            System.out.println(e.getMessage());
+        }
         return null;
+    }
+
+    public void setSignedInUser(Account account) {
+        tabbarController.signInButton.setText(account == null ? "Log In" : "Welcome back, " + account.getFirstName());
     }
 }
 

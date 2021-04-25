@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminAccount extends Account {
+    public AdminAccount(String phoneNumber) {
+        super(phoneNumber);
+    }
+
     Item addItem(Item item) {
         return item;
     }
