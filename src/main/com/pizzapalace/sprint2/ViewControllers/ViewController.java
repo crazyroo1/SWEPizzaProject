@@ -1,12 +1,9 @@
-package com.pizzapalace.sprint2;
+package com.pizzapalace.sprint2.ViewControllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 public class ViewController {
     @FXML public BorderPane content;

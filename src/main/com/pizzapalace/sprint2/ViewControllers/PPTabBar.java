@@ -1,4 +1,4 @@
-package com.pizzapalace.sprint2;
+package com.pizzapalace.sprint2.ViewControllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;

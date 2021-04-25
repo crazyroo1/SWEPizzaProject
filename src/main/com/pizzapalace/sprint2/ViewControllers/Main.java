@@ -1,4 +1,4 @@
-package com.pizzapalace.sprint2;
+package com.pizzapalace.sprint2.ViewControllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
