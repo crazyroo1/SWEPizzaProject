@@ -24,7 +24,7 @@ public class Account {
 
     List<Order> orderHistory;
 
-    Cart cart;
+    Cart cart = new Cart();
 
     public Account(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -55,15 +55,15 @@ public class Account {
         this.contacts = contacts;
     }
 
-    void addItemToCart(Item item) {
+    public void addItemToCart(Item item) {
         cart.add(item);
     }
 
-    void removeItemFromCart(Item item) {
+    public void removeItemFromCart(Item item) {
         cart.remove(item);
     }
 
-    Receipt placeOrder() {
+    public Receipt placeOrder() {
         Order order = cart.placeOrder();
         orderHistory.add(order);
         return order.receipt;

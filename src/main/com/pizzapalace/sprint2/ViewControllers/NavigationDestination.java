@@ -13,4 +13,11 @@ public enum NavigationDestination {
     SIGN_UP,
 
     PIZZA_MENU,
+    PIZZA_DETAIL,
+
+    SNACKS_MENU,
+    SNACKS_DETAIL,
+
+    DRINKS_MENU,
+    DRINKS_DETAIL
 }

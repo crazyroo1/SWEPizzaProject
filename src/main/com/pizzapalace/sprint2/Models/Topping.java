@@ -6,4 +6,10 @@ public class Topping {
     String name;
     Quantity quantity;
     float price;
+
+    public Topping(String name, Quantity quantity, float price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
 }

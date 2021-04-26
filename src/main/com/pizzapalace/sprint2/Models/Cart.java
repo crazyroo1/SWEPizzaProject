@@ -24,4 +24,16 @@ public class Cart {
         }
         return price;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Cart{");
+        for(Item item : cart) {
+            stringBuilder.append(item.toString());
+            stringBuilder.append(", ");
+        }
+        stringBuilder.append("}");
+        return stringBuilder.toString();
+    }
 }

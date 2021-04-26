@@ -8,7 +8,7 @@ import javafx.scene.layout.BorderPane;
 
 public class ViewController {
     public static ViewController shared;
-    static Account signedInUser = null;
+    public static Account signedInUser = null;
 
     @FXML public BorderPane content;
 
@@ -43,6 +43,16 @@ public class ViewController {
                     return FXMLLoader.load(getClass().getResource("/menu/Pizza.fxml"));
                 case SIGN_UP:
                     return FXMLLoader.load(getClass().getResource("/SignUp.fxml"));
+                case PIZZA_DETAIL:
+                    return FXMLLoader.load(getClass().getResource("/menu/PizzaDetail.fxml"));
+                case SNACKS_MENU:
+                    return FXMLLoader.load(getClass().getResource("/menu/Snacks.fxml"));
+                case SNACKS_DETAIL:
+                    return FXMLLoader.load(getClass().getResource("/menu/SnacksDetail.fxml"));
+                case DRINKS_MENU:
+                    return FXMLLoader.load(getClass().getResource("/menu/Drinks.fxml"));
+                case DRINKS_DETAIL:
+                    return FXMLLoader.load(getClass().getResource("/menu/DrinksDetail.fxml"));
             }
         } catch(Exception e) {
             System.out.println("Unable to load destination " + destination.toString());
@@ -52,6 +62,7 @@ public class ViewController {
     }
 
     public void setSignedInUser(Account account) {
+        signedInUser = account;
         String firstName = account.getFirstName();
         if(firstName == null) {
             firstName = account.getPhoneNumber();

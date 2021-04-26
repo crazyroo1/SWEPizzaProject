@@ -1,6 +1,6 @@
 package com.pizzapalace.sprint2.Models;
 
-enum Size {
+public enum Size {
     SMALL,
     MEDIUM,
     LARGE,

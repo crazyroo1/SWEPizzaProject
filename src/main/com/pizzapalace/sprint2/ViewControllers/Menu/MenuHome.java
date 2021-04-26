@@ -12,11 +12,11 @@ public class MenuHome {
 
     @FXML
     public void onSnacksPress() {
-
+        ViewController.shared.navigate(NavigationDestination.SNACKS_MENU);
     }
 
     @FXML
     public void onDrinksPress() {
-
+        ViewController.shared.navigate(NavigationDestination.DRINKS_MENU);
     }
 }

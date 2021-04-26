@@ -1,6 +1,6 @@
 package com.pizzapalace.sprint2.Models;
 
-enum Quantity {
+public enum Quantity {
     LIGHT,
     NORMAL,
     EXTRA

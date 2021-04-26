@@ -9,4 +9,22 @@ public class Item {
     String description;
     int quantity;
     List<ItemPicture> pictures;
+
+    public Item(String name, float price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemID='" + itemID + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", quantity=" + quantity +
+                ", pictures=" + pictures +
+                '}';
+    }
 }
