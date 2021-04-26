@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class Contact {
+    public Contact(String phoneNumber, String email, List<Address> addresses) {
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.addresses = addresses;
+    }
+
     private String phoneNumber;
     private UUID contactID;
     private String email;

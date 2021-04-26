@@ -2,6 +2,7 @@ package com.pizzapalace.sprint2.ViewControllers;
 
 import com.pizzapalace.sprint2.Models.Account;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.File;
@@ -15,6 +16,10 @@ public class SignIn {
     public ViewController viewController;
 
     @FXML public void forgotPasswordPressed() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Forgot Password");
+        alert.setContentText("Please use:\n000-000-0000\npassword");
+        alert.show();
     }
 
     @FXML public void logInPressed() {
@@ -22,7 +27,9 @@ public class SignIn {
 
         Account account = logIn(phoneNumberTextField.getText(), passwordTextField.getText());
         if(account == null) {
-            //todo: present error to user
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Incorrect username/password");
+            alert.show();
         } else {
             phoneNumberTextField.clear();
             passwordTextField.clear();
@@ -32,6 +39,7 @@ public class SignIn {
     }
 
     @FXML public void signUpPressed() {
+        viewController.navigate(NavigationDestination.SIGN_UP);
     }
 
     private Account logIn(String phoneNumber, String password) {

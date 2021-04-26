@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Account {
+    @Getter
     String phoneNumber;
 
     @Getter
@@ -44,6 +45,14 @@ public class Account {
             }
             scanner.nextLine();
         }
+    }
+
+    public Account(String phoneNumber, String firstName, String lastName, String password, List<Contact> contacts) {
+        this.phoneNumber = phoneNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.contacts = contacts;
     }
 
     void addItemToCart(Item item) {
