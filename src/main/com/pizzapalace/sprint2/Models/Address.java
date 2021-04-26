@@ -12,4 +12,13 @@ public class Address {
     private String city;
     private String state;
     private String postalCode;
+
+    public Address(String phoneNumber, String streetName, String streetNumber, String city, String state, String postalCode) {
+        this.phoneNumber = phoneNumber;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+    }
 }

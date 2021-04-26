@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 public class ViewController {
+    public static ViewController shared;
     static Account signedInUser = null;
 
     @FXML public BorderPane content;
@@ -15,6 +16,7 @@ public class ViewController {
 
     @FXML public void initialize() {
         tabbarController.parent = this;
+        shared = this;
         navigate(NavigationDestination.HOME);
     }
 
@@ -35,6 +37,12 @@ public class ViewController {
                     SignIn controller = loader.getController();
                     controller.viewController = this;
                     return root;
+                case MENU:
+                    return FXMLLoader.load(getClass().getResource("/menu/Home.fxml"));
+                case PIZZA_MENU:
+                    return FXMLLoader.load(getClass().getResource("/menu/Pizza.fxml"));
+                case SIGN_UP:
+                    return FXMLLoader.load(getClass().getResource("/SignUp.fxml"));
             }
         } catch(Exception e) {
             System.out.println("Unable to load destination " + destination.toString());
@@ -44,17 +52,11 @@ public class ViewController {
     }
 
     public void setSignedInUser(Account account) {
-        tabbarController.signInButton.setText(account == null ? "Log In" : "Welcome back, " + account.getFirstName());
+        String firstName = account.getFirstName();
+        if(firstName == null) {
+            firstName = account.getPhoneNumber();
+        }
+        tabbarController.signInButton.setText(account == null ? "Log In" : "Welcome back, " + firstName);
     }
 }
 
-enum NavigationDestination {
-    HOME,
-    ABOUT_US,
-    MENU,
-    DIY,
-    SPECIALS,
-    CART,
-    LOG_IN,
-    ACCOUNT
-}
