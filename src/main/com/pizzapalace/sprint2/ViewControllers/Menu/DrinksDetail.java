@@ -1,6 +1,5 @@
 package com.pizzapalace.sprint2.ViewControllers.Menu;
 
-import com.pizzapalace.sprint2.Models.Dessert;
 import com.pizzapalace.sprint2.Models.Drink;
 import com.pizzapalace.sprint2.Models.Size;
 import com.pizzapalace.sprint2.ViewControllers.NavigationDestination;
@@ -25,7 +24,7 @@ public class DrinksDetail {
             return;
         }
 
-        Drink drink = new Drink("Mount Olympus", 3.50f, 1, Size.valueOf(size.getText().toUpperCase()));
+        Drink drink = new Drink("Mount Olympus", 3.59f, 1, Size.valueOf(size.getText().toUpperCase()));
         ViewController.signedInUser.addItemToCart(drink);
 
         ViewController.shared.navigate(NavigationDestination.HOME);

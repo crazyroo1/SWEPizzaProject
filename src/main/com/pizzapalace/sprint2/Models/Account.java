@@ -24,6 +24,7 @@ public class Account {
 
     List<Order> orderHistory;
 
+    @Getter
     Cart cart = new Cart();
 
     public Account(String phoneNumber) {

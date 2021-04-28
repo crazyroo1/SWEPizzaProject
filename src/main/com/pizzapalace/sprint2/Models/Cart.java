@@ -17,7 +17,7 @@ public class Cart {
         cart.remove(item);
     }
 
-    float subtotal() {
+    public float subtotal() {
         float price = 0.0f;
         for(Item item : cart) {
             price += item.price;
@@ -35,5 +35,9 @@ public class Cart {
         }
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+
+    public List<Item> getItems() {
+        return cart;
     }
 }

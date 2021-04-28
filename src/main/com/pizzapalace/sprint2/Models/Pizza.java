@@ -11,7 +11,7 @@ public class Pizza extends Item {
     List<Topping> toppings;
 
     public Pizza(PizzaCrustType crustType, Quantity cheeseQuantity, Quantity sauceQuantity, Size size, List<Topping> toppings) {
-        super("Pizza", 17.99f, 1);
+        super("Napoleon's Revolution", 17.99f, 1);
         this.crustType = crustType;
         this.cheeseQuantity = cheeseQuantity;
         this.sauceQuantity = sauceQuantity;

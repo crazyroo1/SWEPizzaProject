@@ -20,10 +20,18 @@ public class PPTabBar {
     }
 
     public void onMenuPressed() {
+        if(ViewController.signedInUser == null) {
+            parent.navigate(NavigationDestination.LOG_IN);
+            return;
+        }
         parent.navigate(NavigationDestination.MENU);
     }
 
     public void onDIYPressed() {
+        if(ViewController.signedInUser == null) {
+            parent.navigate(NavigationDestination.LOG_IN);
+            return;
+        }
         parent.navigate(NavigationDestination.DIY);
     }
 

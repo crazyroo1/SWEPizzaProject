@@ -53,6 +53,10 @@ public class ViewController {
                     return FXMLLoader.load(getClass().getResource("/menu/Drinks.fxml"));
                 case DRINKS_DETAIL:
                     return FXMLLoader.load(getClass().getResource("/menu/DrinksDetail.fxml"));
+                case CART:
+                    return FXMLLoader.load(getClass().getResource("/Cart.fxml"));
+                case SPECIALS:
+                    return FXMLLoader.load(getClass().getResource("/Specials.fxml"));
             }
         } catch(Exception e) {
             System.out.println("Unable to load destination " + destination.toString());
