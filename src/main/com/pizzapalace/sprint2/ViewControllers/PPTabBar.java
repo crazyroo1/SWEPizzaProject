@@ -44,7 +44,10 @@ public class PPTabBar {
     }
 
     public void onLogInPressed() {
-        parent.navigate(NavigationDestination.LOG_IN);
-        // TODO: Handle sign in versus navigating to account page
+        if(ViewController.signedInUser == null) {
+            parent.navigate(NavigationDestination.LOG_IN);
+        } else {
+            parent.navigate(NavigationDestination.ACCOUNT);
+        }
     }
 }

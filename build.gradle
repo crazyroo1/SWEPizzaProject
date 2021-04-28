@@ -1,6 +1,8 @@
 plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'java'
 }
 
 repositories {
@@ -14,9 +16,20 @@ javafx {
 
 sourceSets.main.java.srcDirs = ['src/main']
 
-mainClassName = 'com.pizzapalace.sprint2.ViewControllers.Main'
+mainClassName = 'com.pizzapalace.sprint2.Launcher'
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.pizzapalace.sprint2.Launcher'
+        )
+    }
+
+    from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {}
 }

@@ -23,6 +23,8 @@ bin/
 .classpath
 target/
 
+out/
+
 # Compiled class file
 *.class
 

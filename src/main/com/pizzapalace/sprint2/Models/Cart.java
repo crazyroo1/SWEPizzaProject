@@ -1,13 +1,19 @@
 package com.pizzapalace.sprint2.Models;
 
+import com.pizzapalace.sprint2.ViewControllers.ViewController;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
     private final List<Item> cart = new ArrayList<>();
 
-    Order placeOrder() {
-        return new Order();
+    public Order placeOrder(PaymentMethod paymentMethod) {
+        Order order = new Order(subtotal(), new ArrayList<>(cart), paymentMethod);
+        ViewController.signedInUser.orderHistory.add(order);
+        System.out.println(ViewController.signedInUser.orderHistory.size());
+        cart.clear();
+        return order;
     }
 
     void add(Item item) {

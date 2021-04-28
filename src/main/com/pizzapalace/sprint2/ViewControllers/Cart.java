@@ -1,14 +1,16 @@
 package com.pizzapalace.sprint2.ViewControllers;
 
-import com.pizzapalace.sprint2.Models.Account;
-import com.pizzapalace.sprint2.Models.Item;
+import com.pizzapalace.sprint2.Models.*;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
+
+import java.util.List;
+
+import static com.pizzapalace.sprint2.ViewControllers.ViewController.signedInUser;
 
 public class Cart {
     @FXML public GridPane content;
@@ -17,7 +19,7 @@ public class Cart {
 
     @FXML
     public void initialize() {
-        Account account = ViewController.signedInUser;
+        Account account = signedInUser;
         if(account == null) { return; }
 
         content.setGridLinesVisible(true);
@@ -52,5 +54,80 @@ public class Cart {
         Label total = new Label("$" + account.getCart().subtotal());
         content.add(total, 3, currentRow);
         GridPane.setHalignment(total, HPos.CENTER);
+    }
+
+    @FXML
+    public void onPickUpPress() {
+        placeOrder(false, new PaymentMethod(new Cash()));
+    }
+
+    @FXML
+    public void onCashPress() {
+        placeOrder(true, new PaymentMethod(new Cash()));
+    }
+
+    @FXML
+    public void onCardPress() {
+        List<PaymentMethod> paymentMethods = signedInUser.getPaymentMethods();
+
+        PaymentMethod paymentMethod = null;
+        for (PaymentMethod method : paymentMethods) {
+            if(method.getPaymentType() instanceof CreditCard) {
+                paymentMethod = method;
+                break;
+            }
+        }
+
+        if(paymentMethod != null) {
+            placeOrder(true, paymentMethod);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("No card in account");
+            alert.setContentText("Go to your account to add one.");
+            alert.show();
+        }
+    }
+
+    @FXML
+    public void onCheckPress() {
+        List<PaymentMethod> paymentMethods = signedInUser.getPaymentMethods();
+
+        PaymentMethod paymentMethod = null;
+        for (PaymentMethod method : paymentMethods) {
+            if(method.getPaymentType() instanceof Check) {
+                paymentMethod = method;
+                break;
+            }
+        }
+
+        if(paymentMethod != null) {
+            placeOrder(true, paymentMethod);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("No check in account");
+            alert.setContentText("Go to your account to add one.");
+            alert.show();
+        }
+    }
+
+    private void placeOrder(boolean delivery, PaymentMethod paymentMethod) {
+        if(signedInUser == null) return;
+
+        if(signedInUser.getCart().getItems().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Cart empty");
+            alert.setContentText("Cannot check out with an empty cart. ");
+            alert.show();
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Order placed successfully");
+        alert.setContentText("Your order has been received and will be " + (delivery ? "delivered" : "ready for pickup") + " in 25 minutes.\nYour receipt has been emailed to you.\nThank you for dining with Pizza Palace!");
+        alert.show();
+
+        ViewController.shared.navigate(NavigationDestination.HOME);
+
+        signedInUser.getCart().placeOrder(paymentMethod);
     }
 }

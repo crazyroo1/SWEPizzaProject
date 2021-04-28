@@ -33,7 +33,9 @@ public class Item {
             stringBuilder.append("Size: ").append(pizza.size).append("\n");
             stringBuilder.append("Cheese: ").append(pizza.cheeseQuantity).append("\n");
             stringBuilder.append("Sauce: ").append(pizza.sauceQuantity).append("\n");
-            stringBuilder.append("Pepperoni: ").append(pizza.toppings.get(0).quantity).append("\n");
+            for (Topping topping : pizza.toppings) {
+                stringBuilder.append(topping.name).append(": ").append(topping.quantity).append("\n");
+            }
             stringBuilder.append("Crust: ").append(pizza.crustType).append("\n");
         }
 

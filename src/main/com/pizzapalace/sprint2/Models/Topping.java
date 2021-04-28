@@ -12,4 +12,10 @@ public class Topping {
         this.quantity = quantity;
         this.price = price;
     }
+
+    public Topping(String name) {
+        this.name = name;
+        this.quantity = Quantity.NORMAL;
+        this.price = 1.99f;
+    }
 }

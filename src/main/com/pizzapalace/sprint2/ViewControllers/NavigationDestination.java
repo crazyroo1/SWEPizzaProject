@@ -10,6 +10,8 @@ public enum NavigationDestination {
     LOG_IN,
     ACCOUNT,
 
+    ORDER_HISTORY,
+
     SIGN_UP,
 
     PIZZA_MENU,

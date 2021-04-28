@@ -1,8 +1,10 @@
 package com.pizzapalace.sprint2.Models;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,8 +22,11 @@ public class Account {
 
     List<Contact> contacts;
 
+    @Setter
+    @Getter
     List<PaymentMethod> paymentMethods;
 
+    @Getter
     List<Order> orderHistory;
 
     @Getter
@@ -46,6 +51,9 @@ public class Account {
             }
             scanner.nextLine();
         }
+
+        this.paymentMethods = new ArrayList<>();
+        this.orderHistory = new ArrayList<>();
     }
 
     public Account(String phoneNumber, String firstName, String lastName, String password, List<Contact> contacts) {
@@ -54,6 +62,9 @@ public class Account {
         this.lastName = lastName;
         this.password = password;
         this.contacts = contacts;
+
+        this.paymentMethods = new ArrayList<>();
+        this.orderHistory = new ArrayList<>();
     }
 
     public void addItemToCart(Item item) {
@@ -62,12 +73,6 @@ public class Account {
 
     public void removeItemFromCart(Item item) {
         cart.remove(item);
-    }
-
-    public Receipt placeOrder() {
-        Order order = cart.placeOrder();
-        orderHistory.add(order);
-        return order.receipt;
     }
 
     void addContactInformation(Contact contact) {

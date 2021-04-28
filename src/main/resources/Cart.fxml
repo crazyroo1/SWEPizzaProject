@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <GridPane prefHeight="375.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.ViewControllers.Cart">
    <columnConstraints>
       <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" percentWidth="100.0" prefWidth="100.0" />
@@ -19,22 +18,22 @@
       <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="20.0" />
    </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Pick Up" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onMouseClicked="#onPickUpPress" text="Pick Up" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" text="Cash" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onMouseClicked="#onCashPress" text="Cash" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" text="Card" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onMouseClicked="#onCardPress" text="Card" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" text="Check" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onMouseClicked="#onCheckPress" text="Check" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="22.0" />
          </font>

@@ -39,7 +39,7 @@ public class PizzaDetail {
                 Quantity.valueOf(cheese.getText().toUpperCase()),
                 Quantity.valueOf(sauce.getText().toUpperCase()),
                 Size.valueOf(size.getText().toUpperCase()),
-                Collections.singletonList(new Topping("Pepperoni", Quantity.valueOf(pepperoni.getText().toUpperCase()), 1)));
+                Collections.singletonList(new Topping("Pepperoni", Quantity.valueOf(pepperoni.getText().toUpperCase()), 0)));
         ViewController.signedInUser.addItemToCart(pizza);
 
         System.out.println(ViewController.signedInUser);
