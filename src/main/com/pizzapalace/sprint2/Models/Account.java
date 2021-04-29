@@ -15,9 +15,12 @@ public class Account {
     @Getter
     String firstName;
 
+    @Getter
     String lastName;
 
     String username;
+
+    @Getter
     String password;
 
     List<Contact> contacts;

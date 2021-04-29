@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <GridPane prefHeight="375.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.ViewControllers.AccountController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="568.0" minWidth="10.0" prefWidth="451.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="448.5" minWidth="10.0" prefWidth="448.5" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="448.5" minWidth="10.0" prefWidth="448.5" />
    </columnConstraints>
    <rowConstraints>
@@ -116,6 +116,7 @@
       </GridPane>
       <Button mnemonicParsing="false" onMouseClicked="#onOrderHistoryPress" text="Order History" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onMouseClicked="#onSavePress" text="Save" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onMouseClicked="#onLogOutPress" text="Log Out" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
    </children>
    <padding>
       <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />

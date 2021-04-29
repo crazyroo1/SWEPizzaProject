@@ -2,6 +2,7 @@ package com.pizzapalace.sprint2.ViewControllers;
 
 import com.pizzapalace.sprint2.Models.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -31,6 +32,15 @@ public class AccountController {
     private TextField cvvTextField;
 
     @FXML
+    void onLogOutPress() {
+        ViewController.shared.setSignedInUser(null);
+        ViewController.shared.navigate(NavigationDestination.HOME);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Logged out");
+        alert.show();
+    }
+
+    @FXML
     void onOrderHistoryPress(MouseEvent event) {
         ViewController.shared.navigate(NavigationDestination.ORDER_HISTORY);
     }
@@ -52,6 +62,11 @@ public class AccountController {
         }
 
         account.setPaymentMethods(paymentMethods);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Saved successfully");
+        alert.show();
+
         ViewController.shared.navigate(NavigationDestination.HOME);
     }
 

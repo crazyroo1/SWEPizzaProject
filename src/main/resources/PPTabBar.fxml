@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="900.0" style="-fx-background-color: #F2E5C1#F2E5C1;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.ViewControllers.PPTabBar">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="900.0" style="-fx-background-color: #F2E5C1#F2E5C1;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pizzapalace.sprint2.ViewControllers.TabBar">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="762.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="138.0" />
@@ -57,14 +57,6 @@
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="signInButton" onMouseClicked="#onLogInPressed" text="Log In" GridPane.valignment="TOP">
-               <padding>
-                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-               </padding>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
          </children>
       </GridPane>
       <ImageView fx:id="logo" fitHeight="110.0" fitWidth="200.0" onMouseClicked="#onHomeButtonPressed" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -72,5 +64,13 @@
             <Image url="@img/PizzaPalaceLogo.png" />
          </image>
       </ImageView>
+      <Label fx:id="signInButton" alignment="TOP_LEFT" onMouseClicked="#onLogInPressed" prefHeight="75.0" prefWidth="182.0" text="Log In" GridPane.valignment="TOP">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class PPTabBar {
+public class TabBar {
     public ViewController parent;
 
     @FXML public ImageView logo;
@@ -40,6 +40,10 @@ public class PPTabBar {
     }
 
     public void onCartPressed() {
+        if(ViewController.signedInUser == null) {
+            parent.navigate(NavigationDestination.LOG_IN);
+            return;
+        }
         parent.navigate(NavigationDestination.CART);
     }
 

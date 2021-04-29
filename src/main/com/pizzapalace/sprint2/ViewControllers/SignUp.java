@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -60,13 +63,28 @@ public class SignUp {
                 ))
         );
 
-        ViewController.shared.setSignedInUser(new Account(
+        Account account = new Account(
                 phoneNumberTextField.getText(),
                 firstNameTextField.getText(),
                 lastNameTextField.getText(),
                 passwordTextField.getText(),
                 contacts
-        ));
+        );
+
+        ViewController.shared.setSignedInUser(account);
         ViewController.shared.navigate(NavigationDestination.HOME);
+
+        saveToFile(account);
+    }
+
+    private void saveToFile(Account account) {
+        try {
+//            File output = new File(getClass().getResource("/Users.csv").toURI());
+            PrintWriter writer = new PrintWriter((new FileOutputStream(new File(getClass().getResource("/Users.csv").toURI()), true)));
+            writer.println(account.getPhoneNumber() + "," + account.getPassword() + "," + account.getFirstName() + "," + account.getLastName());
+            writer.close();
+        } catch(Exception e) {
+            System.out.println("Can't get the file");
+        }
     }
 }

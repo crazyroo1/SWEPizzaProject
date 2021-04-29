@@ -12,7 +12,7 @@ public class ViewController {
 
     @FXML public BorderPane content;
 
-    @FXML public PPTabBar tabbarController;
+    @FXML public TabBar tabbarController;
 
     @FXML public void initialize() {
         tabbarController.parent = this;
@@ -73,11 +73,15 @@ public class ViewController {
 
     public void setSignedInUser(Account account) {
         signedInUser = account;
+        if(account == null) {
+            tabbarController.signInButton.setText("Log In");
+            return;
+        }
         String firstName = account.getFirstName();
         if(firstName == null) {
             firstName = account.getPhoneNumber();
         }
-        tabbarController.signInButton.setText(account == null ? "Log In" : "Welcome back, " + firstName);
+        tabbarController.signInButton.setText("Welcome back, " + firstName + "\nMy Account");
     }
 }
 
